@@ -6,10 +6,11 @@ nav {
 
 input {
     width: 35vw;
-    height: 26px;
+    height: 30px;
     border: none;
     outline: none;
-    margin: 17px 80px;
+    margin: 15px 80px;
     padding-left: 30px;
     border-radius: 10px;
+    font-size: 16px;
 }
