@@ -1,32 +1,33 @@
+#profile-bar {
+    grid-area: profile-bar;
+}
+
+#navbar {
+    grid-area: nav-bar;
+}
+
+#basic-info {
+    grid-area: basic-info;
+}
+
+#about {
+    grid-area: about;
+}
+
+#files {
+    grid-area: files;
+}
+
+
 .App {
-  text-align: center;
+    display: grid;
+    grid-template-rows: 60px 300px;
+    grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "profile-bar nav-bar nav-bar nav-bar nav-bar nav-bar nav-bar"
+    "profile-bar basic-info about about about about files";
+    /* "profile-bar basic-info experience experience experience experience ." */
+    /* "profile-bar basic-info experience education education education ."; */
+    grid-gap: 0.5vw;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
