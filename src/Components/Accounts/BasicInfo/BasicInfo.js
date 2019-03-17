@@ -4,13 +4,12 @@ import BasicInfoStyles from './BasicInfo.module.css'
 const basicInfo = () => {
     return (
         <div id={BasicInfoStyles['basic-info']}>
-            <div><img src="https://lyrictheatreokc.com/wp-content/uploads/2015/09/Geno-Square-Headshot.jpeg"></img></div> 
+            <div><img src="https://i.imgur.com/WdcrH1R.jpg"></img></div> 
             <div id={BasicInfoStyles.info}>
-                <div id={BasicInfoStyles.name}><p>Billy Jean</p></div>
-                <div id={BasicInfoStyles.major}><p>Computer Engineering</p></div>
-                <div id={BasicInfoStyles.occupation}><p>Student</p></div>
+                <div id={BasicInfoStyles.name}><p>Thomas Alva Edison</p></div>
+                <div id={BasicInfoStyles.major}><p>Computer Engineering Student</p></div>
             </div>
-            <div id={BasicInfoStyles.stat}>
+            {/* <div id={BasicInfoStyles.stat}>
                 <span>
                     <p>89</p>
                     <p>Projects</p>
@@ -19,14 +18,31 @@ const basicInfo = () => {
                     <p>155</p>
                     <p>Connections</p>
                 </span>
-            </div>
+            </div> */}
 
-            <ul id={BasicInfoStyles.menu}>
+            {/* <ul id={BasicInfoStyles.menu}>
                 <li><i class="far fa-user"></i>Profile</li>
                 <li><i class="fas fa-users"></i>Connections</li>
                 <li><i class="fas fa-database"></i>Projects</li>
-            </ul>
+            </ul> */}
 
+            <div id={BasicInfoStyles.summary}>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere justo consectetur quam vehicula, 
+                    eu vulputate dui Integer aliquet nec nunc nec consequat. Nullam pharetra posuere erat ut fermentum. 
+                    Praesent sapien magna, tempus id lacus in, ornare pharetra diam. Aliquam justo ipsum, vestibulum in 
+                    ante eget, pharetra hendrerit diam. Donec nec pharetra ex. Sed eu libero in leo ullamcorper auctor. 
+                    Morbi eget tortor lacus. In eleifend mi ut lectus blandit, sed efficitur nisl eleifend. 
+                    Mauris aliquam, magna luctus tempus condimentum, nisi ligula vulputate tellus, a pulvinar est turpis 
+                    vel sapien. Vivamus in faucibus eros. Fusce blandit facilisis interdum.
+                </p>
+            </div>
+
+            <ul id={BasicInfoStyles.menu}>
+                <li className={BasicInfoStyles.active}>Profile</li>
+                <li>Connections</li>
+                <li>Projects</li>
+            </ul>
         </div>
     )
 }

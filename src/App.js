@@ -19,7 +19,6 @@ class App extends Component {
         <div id="profile-bar"><ProfileBar/></div>
         <div id="navbar"><Navbar/></div>
         <div id="basic-info"><BasicInfo/></div>
-        <div id="about"><About/></div>
         <div id="files"><Files/></div>
         {/* <div id="SignIn"><SignIn/></div> */}
         {/* <div id="SignIn"><SignUp/></div> */}

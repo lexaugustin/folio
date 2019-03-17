@@ -5,25 +5,22 @@ const profileBar = () => {
     return (
         <div id={ProfileBarStyles.sidebar}> 
             <div id={ProfileBarStyles.logo}>Folio</div>
-            <div id={ProfileBarStyles.portrait}>
-                <img src="https://lyrictheatreokc.com/wp-content/uploads/2015/09/Geno-Square-Headshot.jpeg"/>
+
+            <div id={ProfileBarStyles.profile}>
+                <div id={ProfileBarStyles.portrait}>
+                    <img src="https://lyrictheatreokc.com/wp-content/uploads/2015/09/Geno-Square-Headshot.jpeg"/>
+                </div>
+                <div id={ProfileBarStyles.info}>
+                    <p>Alexander Augustin</p>
+                    <p>Gainesville, Florida</p>
+                    {/* <p>Student</p> */}
+                </div>
             </div>
-            <div id={ProfileBarStyles.info}>
-                <p>John Doe</p>
-                <p>Computer Engineering</p>
-                <p>Student</p>
-            </div>
+
             <div id={ProfileBarStyles.stat}>
-                <span>
-                    <p>89</p>
-                    <p>Projects</p>
-                </span>
-                <span>
-                    <p>155</p>
-                    <p>Connections</p>
-                </span>
+                <p>123 <span>Projects</span></p>
+                <p>155 <span>Connections</span></p>
             </div>
-            <hr/>
 
             <ul id={ProfileBarStyles.menu}>
                 <li><i class="far fa-user"></i>Profile</li>

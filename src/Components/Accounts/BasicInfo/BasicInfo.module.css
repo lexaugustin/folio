@@ -1,18 +1,27 @@
 #basic-info {
     height: auto;
-    border: 1px solid #EAEDF3;
-    border-radius: 10px;
+    /* border: 1px solid #EAEDF3; */
+    border-radius: 3px;
+    background-color: #FFF;
 }
 
 #basic-info img {
     width: 100%;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    height: auto;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
 }
 
 #info {
-    text-align: center;
-    margin: 30px auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #c7c7c7;
+}
+
+#info div {
+    margin: 0 50px;
 }
 
 #info p{
@@ -23,10 +32,16 @@
 #name {
     font-size: 1.3em;
     font-weight: 600;
-    margin-bottom: 10px;
 }
 
-#stat {
+#summary p {
+    color: rgb(85, 84, 112);
+    line-height: 25px;
+    margin: 0 50px;
+    padding: 30px 0;
+}
+
+/* #stat {
     display: flex;
 }
 
@@ -34,21 +49,32 @@
     width: 50%;
     padding: 2% 2% 2% 5%;
     border: 1px solid #EAEDF3;
-}
+} */
 
-#stat p {
+/* #stat p {
     margin: 10px;
-}
+} */
 
 /* ==========================================================================
 M E N U
 ========================================================================== */
 #menu {
     list-style: none;
-    /* color: #FFF; */
-    margin-top: 100px;
+    text-align: center;
+    padding-bottom: 13px;
 }
 
-#menu i {
-    margin: 0 20px 40px 0;
+#menu li {
+    display: inline;
+    padding: 10px 50px;
+}
+
+#menu li:hover {
+    background-color: #555;
+    color: white;
+}
+
+.active {
+    border-bottom: 3px solid rgb(45, 56, 107);
+    overflow: hidden;
 }

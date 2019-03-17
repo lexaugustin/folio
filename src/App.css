@@ -1,31 +1,35 @@
-#profile-bar {
-    grid-area: profile-bar;
-}
-
 #navbar {
     grid-area: nav-bar;
+}
+
+#profile-bar {
+    grid-area: profile-bar;
+    margin: 0 15px;
 }
 
 #basic-info {
     grid-area: basic-info;
 }
 
-#about {
+/* #about {
     grid-area: about;
-}
+    margin: 0 20px;
+} */
 
 #files {
     grid-area: files;
+    margin: 0 15px;
 }
 
 
 .App {
     display: grid;
-    grid-template-rows: 60px 300px;
-    grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 300px 2fr 2fr 0.7fr;
     grid-template-areas:
-    "profile-bar nav-bar nav-bar nav-bar nav-bar nav-bar nav-bar"
-    "profile-bar basic-info about about about about files";
+    "nav-bar nav-bar nav-bar nav-bar"
+    "profile-bar basic-info basic-info files";
+    /* "profile-bar about about about about about files"; */
     /* "profile-bar basic-info experience experience experience experience ." */
     /* "profile-bar basic-info experience education education education ."; */
     grid-gap: 0.5vw;
