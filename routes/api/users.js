@@ -1,8 +1,9 @@
-const   express = require('express'),
-        router  = express.Router(),
-        bcrypt  = require('bcryptjs'),
-        JWT     = require('jsonwebtoken'),
-        keys    = require('../../config/config');
+const   express     = require('express'),
+        router      = express.Router(),
+        bcrypt      = require('bcryptjs'),
+        JWT         = require('jsonwebtoken'),
+        keys        = require('../../config/keys'),
+        passport    = require('passport');
 
 // Load user model
 const User = require('../../models/User')
@@ -86,5 +87,18 @@ router.post('/signin', (req, res) => {
                 })
         });
 });
+
+
+// @route           GET api/users/loggedin
+// @descscription   Return the current logged-in user
+// @access          Private
+router.get('/loggedin', passport.authenticate('jwt', {session: false}), (req, res) => {
+    res.json({
+        id: req.user.id,
+        name: req.user.name,
+        email: req.user.email
+    });
+});
+
 
 module.exports = router;
