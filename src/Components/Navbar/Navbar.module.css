@@ -1,7 +1,16 @@
 nav {
     height: 60px;
     background-color: #3E488C;
+<<<<<<< HEAD
+    display: flex;
+=======
+>>>>>>> 595067b0a4f396a2c1dae966ef1a9e9cb471b7dd
     /* box-shadow: 0px 1px 2px #e4e4e4; */
+}
+
+#logo {
+    margin-left: 100px;
+    color: #FFF;
 }
 
 input {
