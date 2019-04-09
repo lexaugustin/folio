@@ -5,6 +5,10 @@ const   express     = require('express'),
         keys        = require('../../config/keys'),
         passport    = require('passport');
 
+// Load input validation
+const validateSignUpInput = require('../../validation/signup');
+const validateSignInInput = require('../../validation/signin');
+
 // Load user model
 const User = require('../../models/User')
 
@@ -21,11 +25,21 @@ router.get('/test', (req, res) => res.json(
 // @descscription   User registration
 // @access          Public
 router.post('/signup', (req, res) => {
+
+    const {errors, isValid} = validateSignUpInput(req.body);
+
+    // Check validation
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
+
     //First find if the email exists
     User.findOne({email: req.body.email})
         .then(user => {
             if(user){
-                return res.status(400).json({email: 'Email already exists'})
+                errors.email = 'This email already exists';
+                return res.status(400).json(errors);
+                // return res.status(400).json({email: 'Email already exists'})
             } else {
                 const newUser = new User({
                     name: req.body.name,
@@ -54,6 +68,14 @@ router.post('/signup', (req, res) => {
 // @descscription   user signing in / Returnimng JWT token
 // @access          Public
 router.post('/signin', (req, res) => {
+
+    const {errors, isValid} = validateSignInInput(req.body);
+
+    // Check validation
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
+
     const email = req.body.email;
     const password = req.body.password;
 
@@ -62,7 +84,9 @@ router.post('/signin', (req, res) => {
         .then(user => {
             // Check for user
             if(!user) {
-                return res.status(404).json({email:'User not found'});
+                errors.email = 'User does not exist';
+                return res.status(404).json(errors);
+                // return res.status(404).json({email:'User does not exist'});
             }
 
             // Check password
@@ -82,7 +106,9 @@ router.post('/signin', (req, res) => {
                             });
                         });
                     } else {
-                        return res.status(400).json({password: 'Password incorrect'});
+                        errors.password = 'Incorrect password';
+                        return res.status(400).json(errors);
+                        // return res.status(400).json({password: 'Incorrect password'});
                     }
                 })
         });
