@@ -160,7 +160,7 @@ router.get('/all', (req, res) => {
 
 
 // @route       POST api/profile/experience
-// @desc        This route is used to add new experience to user's profile
+// @desc        This route is used to add new experience to the user's profile
 // @access      Private
 router.post('/experience', passport.authenticate('jwt', {session: false}), (req, res) => {
 
@@ -190,7 +190,7 @@ router.post('/experience', passport.authenticate('jwt', {session: false}), (req,
 
 
 // @route       POST api/profile/education
-// @desc        This route is used to add new experience to user's profile
+// @desc        This route is used to add new education to the user's profile
 // @access      Private
 router.post('/education', passport.authenticate('jwt', {session: false}), (req, res) => {
 
@@ -218,7 +218,51 @@ router.post('/education', passport.authenticate('jwt', {session: false}), (req, 
 
 });
 
+// @route       DELETE api/profile/experience/:experience_id
+// @desc        This route is used to delete experience from the user's profile
+// @access      Private
+router.delete('/experience/:experience_id', passport.authenticate('jwt', {session: false}), (req, res) => {
 
+    Profile.findOne({user: req.user.id})
+        .then(profile => {
+            // Get the index of the experience to be deleted
+            const exp_index = profile.experience
+                .map(item => item.id)
+                .indexOf(req.params.experience_id);
+
+            // Splice the experience array
+            profile.experience.splice(exp_index, 1);
+
+            // Save the new spliced array
+            profile.save()
+                .then(profile => res.json(profile));
+        })
+        .catch(err => res.status(404).json(err));
+
+});
+
+// @route       DELETE api/profile/education/:education_id
+// @desc        This route is used to delete education from the user's profile
+// @access      Private
+router.delete('/education/:education_id', passport.authenticate('jwt', {session: false}), (req, res) => {
+
+    Profile.findOne({user: req.user.id})
+        .then(profile => {
+            // Get the index of the education to be deleted
+            const edu_index = profile.education
+                .map(item => item.id)
+                .indexOf(req.params.education_id);
+
+            // Splice the experience array
+            profile.education.splice(edu_index, 1);
+
+            // Save the new spliced array
+            profile.save()
+                .then(profile => res.json(profile));
+        })
+        .catch(err => res.status(404).json(err));
+
+});
 
 
 module.exports = router;
