@@ -10,7 +10,7 @@ const validateEducationInput = require('../../validation/education');
 
 // Import profile model
 const Profile = require('../../models/Profile');
-// Import user profile
+// Import user model
 const User = require('../../models/User');
 
 
@@ -264,5 +264,18 @@ router.delete('/education/:education_id', passport.authenticate('jwt', {session:
 
 });
 
+
+// @route       DELETE api/profile/:
+// @desc        This route is used to delete a user and his/her profile
+// @access      Private
+router.delete('/', passport.authenticate('jwt', {session: false}), (req, res) => {
+
+    Profile.findOneAndRemove({user: req.user.id})
+        .then(() => {
+            User.findOneAndRemove({_id: req.user.id})
+                .then(() => res.json({success: true}));
+        })
+
+});
 
 module.exports = router;
