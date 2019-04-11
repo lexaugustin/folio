@@ -1,0 +1,39 @@
+#content {
+    position: absolute;
+    display: flex;
+}
+
+
+#left {
+    width: 50vw;
+    height: calc(100vh - 50px);
+    background-image: url("https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-position: center;
+    background-size: cover;
+}
+
+#right {
+    width: 50vw;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+}
+
+
+#buttons {
+    margin: 0 auto 100px auto;
+}
+
+#buttons div {
+    margin: 40px 0;
+}
+
+button {
+    height: 50px;
+    width: 20vw;
+}
+
+#signin-button {
+    border: 2px solid rgb(226, 226, 226);
+    border-radius: 0.25rem;
+}
