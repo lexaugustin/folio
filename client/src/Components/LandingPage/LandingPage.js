@@ -1,5 +1,7 @@
 import React from 'react'
 import LandingPageStyles from './LandingPage.module.css'
+import { Link } from 'react-router-dom'
+
 import Footer from '../Footer/Footer'
 
 const landingPage = (props) => {
@@ -10,11 +12,23 @@ const landingPage = (props) => {
             </div>
 
             <div id={LandingPageStyles.right}>
+            
                 <div id={LandingPageStyles.buttons}>
-                    <div id={LandingPageStyles['signin-button']}><button type="button" class="btn btn-light">Sign In</button></div>
-                    <div><button type="button" class="btn btn-primary">Sign Up</button></div>
+                    <div id={LandingPageStyles['signin-button']}>
+                        <Link to="/Signin">
+                            <button type="button" class="btn btn-light">Sign In</button>
+                        </Link>
+                    </div>
+                    <div id={LandingPageStyles['signin-button']}>
+                        <Link to="/Signin">
+                            <button type="button" class="btn btn-primary">Sign Up</button>
+                        </Link>
+                    </div>
                 </div>
-                <div><Footer/></div>
+
+                <div id={LandingPageStyles.footer}>
+                    <Footer/>
+                </div>
             </div>
         </div>
     )
