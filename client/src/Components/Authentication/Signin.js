@@ -1,7 +1,15 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types';
+import { withRouter } from "react-router-dom";
 
+import { connect } from 'react-redux';
+import { signInUser } from '../../actions/authActions';
+
+// Styles
 import SigninStyles from './Signin.module.css'
 
+// Components
+import TextField from '../Common/TextField'
 import Footer from '../Footer/Footer'
 
 class Signin extends Component {
@@ -18,6 +26,23 @@ class Signin extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentDidMount(){
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/dashboard');
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+
+        if (nextProps.auth.isAuthenticated) {
+            this.props.history.push('/dashboard');
+        }
+
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors });
+        }
+    }
+
     onChange(e) {
         this.setState({[e.target.name]: e.target.value});
     }
@@ -25,58 +50,64 @@ class Signin extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const user = {
+        const userData = {
             email: this.state.email,
             password: this.state.password,
         }
-        console.log(user);
+        this.props.signInUser(userData, this.props.history);
     }
 
     render() {
+
+        // Same as doing "const errors = this.state.errors;"
+        const { errors } = this.state;
+
         return (
             <div id={SigninStyles.content}>
-                <div id={SigninStyles.left}></div>
-                
-                <div id={SigninStyles.right}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-8 m-auto">
+                            <h1 className="display-4 text-center">Sign In</h1>
+                            <form onSubmit={this.onSubmit}>
+                                
+                                <TextField
+                                    placeholder="Email"
+                                    name="email"
+                                    type="email"
+                                    value={this.state.email}
+                                    onChange={this.onChange}
+                                    error={errors.email}
+                                />
 
-                    <div>
-                        <h1>Sign In</h1>
-                    </div>
+                                <TextField
+                                    placeholder="Password"
+                                    name="password"
+                                    type="password"
+                                    value={this.state.password}
+                                    onChange={this.onChange}
+                                    error={errors.password}
+                                />
 
-                    <form id={SigninStyles.form} onSubmit={this.onSubmit}>
-                        <div id={SigninStyles.input}>
-                            <input 
-                                type="email" 
-                                className={SigninStyles['email-input']} 
-                                name="email" 
-                                placeholder="Enter email"
-                                value={this.state.email} 
-                                onChange={this.onChange}
-                            />
+                                <input type="submit" className="btn btn-info btn-block mt-4" />
+                            </form>
                         </div>
-
-                        <div id={SigninStyles.input}>
-                            <input 
-                                type="password" 
-                                className={SigninStyles['password-input']} 
-                                name="password" 
-                                placeholder="Password"
-                                value={this.state.password} 
-                                onChange={this.onChange}
-                            />
-                        </div>
-
-                        <button id={SigninStyles.button} type="submit" className="btn btn-primary">Submit</button>
-                    </form>
-
-                    <div id={SigninStyles.footer}>
-                        <Footer/>
                     </div>
-
                 </div>
             </div>
         )
     }
 }
 
-export default Signin;
+
+Signin.propTypes = {
+    signInUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps, { signInUser })(Signin);

@@ -1,32 +1,85 @@
 import React, {Component} from 'react'
 import { Link } from "react-router-dom"
 
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { signOutUser } from '../../actions/authActions';
+import { clearCurrentProfile } from '../../actions/profileActions';
+
 import NavbarStyles from './Navbar.module.css'
 
 class Navbar extends Component {
+
+    onLogoutClick(e) {
+        e.preventDefault();
+        this.props.clearCurrentProfile();
+        this.props.signOutUser();
+    }
+
     render() {
+
+        const { isAuthenticated, user } = this.props.auth;
+
+        const authLinks = (
+            <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                    <a href="" onClick={this.onLogoutClick.bind(this)} className="nav-link" >
+                        {/* <img
+                            className="rounded-circle"
+                            src={user.avatar}
+                            alt={user.name}
+                            style={{ width: '25px', marginRight: '5px' }}
+                            title="You must have a Gravatar connected to your email to display an image"
+                        />{' '} */}
+                        Sign Out
+                    </a>
+                </li>
+            </ul>
+        );
+
+        const guestLinks = (
+            <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                    <Link className="nav-link" to="/signup">Sign Up</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/signin">Sign in</Link>
+                </li>
+            </ul>
+        );
+
         return (
-            <nav id={NavbarStyles.nav}>
+            <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+                <div className="container">
+                    <Link className="navbar-brand" to="/"> Folio </Link>
+                    
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+                        <span className="navbar-toggler-icon" />
+                    </button>
 
-                <div id={NavbarStyles.content}>
-                    <div id={NavbarStyles.logo}>
-                        <Link to="/">
-                            <h3>Folio</h3>
-                        </Link>
-                    </div>
+                    <div className="collapse navbar-collapse" id="mobile-nav">
+                        {/* <ul className="navbar-nav mr-auto">
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/profiles"> {' '} Developers </Link>
+                            </li>
+                        </ul> */}
 
-                    <div id={NavbarStyles.summary}>
-                        <p>Portfolio Web Application</p>
+                        {isAuthenticated ? authLinks : guestLinks}
+
                     </div>
-        
-                    {/* <div id={NavbarStyles.search}>
-                        <input placeholder="Search"/>
-                    </div> */}
                 </div>
-
             </nav>
         )
     }
 }
 
-export default Navbar;
+Navbar.propTypes = {
+    signOutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+});
+
+export default connect(mapStateToProps, { signOutUser, clearCurrentProfile })(Navbar);

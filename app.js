@@ -37,7 +37,8 @@ app.use('/api/posts', posts);
 
 
 // Start server
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-    console.log("The server has started on port ${port}");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, process.env.IP, function () {
+    console.log(`The server has started successfully on Port: ${PORT}`);
 });

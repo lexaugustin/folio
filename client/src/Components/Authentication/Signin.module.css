@@ -1,4 +1,4 @@
-#content {
+/* #content {
     position: absolute;
     display: flex;
 }
@@ -35,12 +35,14 @@ input {
     height: 40px;
     max-width: 700px;
     display: block;
-    border: 2px solid gray;
 }
 
+.is-invalid {
+    border: 2px solid red;
+}
 
 #button {
   width: 250px;
   margin: 50px auto;
   border-radius: 15px;
-}
+} */

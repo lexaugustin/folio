@@ -1,8 +1,15 @@
 import React, {Component} from 'react'
-import axios from 'axios';
+import PropTypes from 'prop-types';
+import { withRouter } from "react-router-dom";
 
+import { connect } from 'react-redux';
+import { signUpUser } from '../../actions/authActions';
+
+// Styles
 import SignupStyles from './Signin.module.css'
 
+// Components
+import TextField from '../Common/TextField'
 import Footer from '../Footer/Footer'
 
 class Signup extends Component {
@@ -21,6 +28,18 @@ class Signup extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentDidMount(){
+        if( this.props.auth.isAuthenticated) {
+            this.props.history.push('/dashboard');
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors });
+        }
+    }
+
     onChange(e) {
         this.setState({[e.target.name]: e.target.value});
     }
@@ -34,80 +53,80 @@ class Signup extends Component {
             password: this.state.password,
             password2: this.state.password2
         }
-        
-        axios.post('api/users/register', newUser)
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err))
+
+        this.props.signUpUser(newUser, this.props.history);
+    
     }
 
     render() {
+
+        // Same as doing "const errors = this.state.errors;"
+        const { errors } = this.state;
+
         return (
             <div id={SignupStyles.content}>
-                <div id={SignupStyles.left}></div>
-                
-                <div id={SignupStyles.right}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-8 m-auto">
+                            <h1 className="display-4 text-center">Sign Up</h1>
+                            <form noValidate onSubmit={this.onSubmit}>
 
-                    <div id={SignupStyles.title}>
-                        <h1>Sign Up</h1>
-                        <p>Create your Folio Account</p>
+                                <TextField
+                                    placeholder="Name"
+                                    name="name"
+                                    type="text"
+                                    value={this.state.name}
+                                    onChange={this.onChange}
+                                    error={errors.name}
+                                />
+
+                                <TextField
+                                    placeholder="Email"
+                                    name="email"
+                                    type="email"
+                                    value={this.state.email}
+                                    onChange={this.onChange}
+                                    error={errors.email}
+                                />
+
+                                <TextField
+                                    placeholder="Password"
+                                    name="password"
+                                    type="password"
+                                    value={this.state.password}
+                                    onChange={this.onChange}
+                                    error={errors.password}
+                                />
+
+                                <TextField
+                                    placeholder="Confirm Password"
+                                    name="password2"
+                                    type="password"
+                                    value={this.state.password2}
+                                    onChange={this.onChange}
+                                    error={errors.password2}
+                                />
+
+                                <input type="submit" className="btn btn-info btn-block mt-4" />
+                                
+                            </form>
+                        </div>
                     </div>
-
-                    <form id={SignupStyles.form} onSubmit={this.onSubmit}>
-                        <div id={SignupStyles.input}>
-                            <input 
-                                type="text" 
-                                className={SignupStyles['email-input']} 
-                                name="name" 
-                                value={this.state.name} 
-                                placeholder="Name"
-                                onChange={this.onChange}
-                            />
-                        </div>
-
-                        <div id={SignupStyles.input}>
-                            <input 
-                                type="email" 
-                                className={SignupStyles['email-input']} 
-                                name="email" 
-                                value={this.state.email} 
-                                placeholder="Enter email"
-                                onChange={this.onChange}
-                            />
-                        </div>
-
-                        <div id={SignupStyles.input}>
-                            <input 
-                                type="password" 
-                                className={SignupStyles['password-input']} 
-                                name="password" 
-                                value={this.state.password} 
-                                placeholder="Password"
-                                onChange={this.onChange}
-                            />
-                        </div>
-
-                        <div id={SignupStyles.input}>
-                            <input 
-                                type="password" 
-                                className={SignupStyles['password-input']} 
-                                name="password2" 
-                                value={this.state.password2} 
-                                placeholder="Confirm Password"
-                                onChange={this.onChange}
-                            />
-                        </div>
-
-                        <button id={SignupStyles.button} type="submit" className="btn btn-primary">Submit</button>
-                    </form>
-
-                    <div id={SignupStyles.footer}>
-                        <Footer/>
-                    </div>
-
                 </div>
             </div>
         )
     }
 }
 
-export default Signup;
+Signup.propTypes = {
+    signUpUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps, {signUpUser})(withRouter(Signup));

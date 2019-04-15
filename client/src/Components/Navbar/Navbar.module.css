@@ -1,9 +1,9 @@
-nav {
+/* nav {
     height: 50px;
     color: #FFF;
     background-color: #3E488C;
     display: flex;
-    /* box-shadow: 0px 1px 2px #e4e4e4; */
+    box-shadow: 0px 1px 2px #e4e4e4;
 }
 
 #nav #content {
@@ -34,4 +34,4 @@ input {
     padding-left: 30px;
     border-radius: 10px;
     font-size: 16px;
-}
+} */

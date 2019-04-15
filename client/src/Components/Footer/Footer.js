@@ -1,11 +1,11 @@
 import React from 'react'
 import FooterStyles from './Footer.module.css'
 
-const footer = (props) => {
+const footer = () => {
     return (
-        <div id={FooterStyles.content}>
+        <footer className="bg-dark text-white mt-5 p-4 text-center">
             <p>Folio &copy; {new Date().getFullYear()}. All rights reserved</p> 
-        </div>
+        </footer>
     )
 }
 
