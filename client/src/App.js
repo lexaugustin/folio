@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+
 // Router
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import store from './store';
@@ -10,6 +11,7 @@ import setAuthorizationToken from './utils/setAuthorizationToken';
 import { setCurrentUser, signOutUser } from './actions/authActions';
 import { clearCurrentProfile } from './actions/profileActions';
 
+import PrivateRoute from './Components/Common/PrivateRoute';
 
 // Components
 import Signin from './Components/Authentication/Signin'
@@ -18,6 +20,10 @@ import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
 import LandingPage from './Components/LandingPage/LandingPage'
 import UserProfile from './Components/UserProfile/UserProfile'
+import CreateProfile from './Components/create-profile/CreateProfile';
+import EditProfile from './Components/edit-profile/EditProfile';
+import AddExperience from './Components/ProfileSections/AddExperience';
+import AddEducation from './Components/ProfileSections/AddEducation';
 
 
 // Styles
@@ -61,7 +67,18 @@ class App extends Component {
             <Route exact path="/" component = {LandingPage} />
             <Route exact path="/signin" component = {Signin} />
             <Route exact path="/signup" component = {Signup} />
-            <Route exact path="/userprofile" component = {UserProfile} />
+
+            {/* Display user profile */}
+            <Switch><PrivateRoute exact path="/userprofile" component = {UserProfile} /></Switch>
+            {/* Create user profile */}
+            <Switch><PrivateRoute exact path="/create-profile" component = {CreateProfile} /></Switch>
+            {/* Edit user profile */}
+            <Switch><PrivateRoute exact path="/edit-profile" component = {EditProfile} /></Switch>
+            {/* Add Experience to user profile */}
+            <Switch><PrivateRoute exact path="/add-experience" component = {AddExperience} /></Switch>
+            {/* Add Education to user profile */}
+            <Switch><PrivateRoute exact path="/add-education" component = {AddEducation} /></Switch>
+
             <Footer />
           </div>
         </Router>
