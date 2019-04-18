@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/lexaugustin/folio#readme",
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
@@ -29,6 +30,8 @@
     "mongoose": "^5.4.19",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "validator": "^10.11.0"
   },
   "devDependencies": {
