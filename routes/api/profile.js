@@ -14,14 +14,14 @@ const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
 
-// @route       GET api/profile/test
-// @desc        Tests profile route
-// @access      Public
-router.get('/test', (req, res) => res.json(
-    { 
-        msg: 'Profile Works'
-    })
-);
+// // @route       GET api/profile/test
+// // @desc        Tests profile route
+// // @access      Public
+// router.get('/test', (req, res) => res.json(
+//     { 
+//         msg: 'Profile Works'
+//     })
+// );
 
 
 // @route       GET api/profile
@@ -29,6 +29,7 @@ router.get('/test', (req, res) => res.json(
 // @access      Private
 router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     const errors = {};
+
     Profile.findOne({user: req.user.id})
         .populate('user', ['name'])
         .then(profile => {
@@ -136,7 +137,7 @@ router.get('/user/:user_id', (req, res) => {
 
             res.json(profile);
         })
-        .catch(err => res.status(404).json({ProfileNotFound: 'Profile not found for this user'}));
+        .catch(err => res.status(404).json({profile: 'Profile not found for this user'}));
 });
 
 
@@ -150,12 +151,12 @@ router.get('/all', (req, res) => {
     .populate('user', ['name'])
     .then(profiles => {
         if(!profiles){
-            errors.nonprofile = 'No profile found';
+            errors.profileNotFound = 'No profile found';
             return res.status(404).json(errors);
         }
         res.json(profiles);
     })
-    .catch(err => res.status(404).json({ProfileNotFound: 'No profile found'}));
+    .catch(err => res.status(404).json({ profile: 'No profile found'}));
 });
 
 
@@ -274,7 +275,7 @@ router.delete('/', passport.authenticate('jwt', {session: false}), (req, res) =>
         .then(() => {
             User.findOneAndRemove({_id: req.user.id})
                 .then(() => res.json({success: true}));
-        })
+        });
 
 });
 

@@ -129,7 +129,7 @@ class AddEducation extends Component {
                     onChange={this.onCheck}
                     id="current"
                   />
-                  <label htmlFor="current" className="form-check-label">Current Job</label>
+                  <label htmlFor="current" className="form-check-label">Current school</label>
                 </div>
 
                 <TextAreaField

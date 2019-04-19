@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
-import { withRouter } from "react-router-dom";
 
 import { connect } from 'react-redux';
 import { signInUser } from '../../actions/authActions';
@@ -10,7 +9,6 @@ import SigninStyles from './Signin.module.css'
 
 // Components
 import TextField from '../Common/TextField'
-import Footer from '../Footer/Footer'
 
 class Signin extends Component {
 
@@ -33,7 +31,6 @@ class Signin extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-
         if (nextProps.auth.isAuthenticated) {
             this.props.history.push('/userprofile');
         }
@@ -43,10 +40,6 @@ class Signin extends Component {
         }
     }
 
-    onChange(e) {
-        this.setState({[e.target.name]: e.target.value});
-    }
-
     onSubmit(e) {
         e.preventDefault();
 
@@ -54,7 +47,11 @@ class Signin extends Component {
             email: this.state.email,
             password: this.state.password,
         }
-        this.props.signInUser(userData, this.props.history);
+        this.props.signInUser(userData);
+    }
+
+    onChange(e) {
+        this.setState({[e.target.name]: e.target.value});
     }
 
     render() {

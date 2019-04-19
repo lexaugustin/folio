@@ -23,5 +23,5 @@ module.exports = function validateSingInInput(data) {
     return {
         errors,
         isValid: isEmpty(errors)
-    }
-}
+    };
+};

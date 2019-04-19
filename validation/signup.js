@@ -10,7 +10,7 @@ module.exports = function validateSingUpInput(data) {
     data.password = !isEmpty(data.password) ? data.password : '';
     data.password2 = !isEmpty(data.password2) ? data.password2 : '';
 
-    if(!Validator.isLength(data.name, {min:2, max: 30})) {
+    if(!Validator.isLength(data.name, {min: 2, max: 30})) {
         errors.name = "Name is too short";
     }
 
@@ -30,7 +30,7 @@ module.exports = function validateSingUpInput(data) {
         errors.password = 'Your password is required';
     }
 
-    if(!Validator.isLength(data.password, {min:8, max:20})){
+    if(!Validator.isLength(data.password, {min: 8, max: 20})){
         errors.password = 'Password must be at least 8 characters';
     }
 
@@ -39,7 +39,7 @@ module.exports = function validateSingUpInput(data) {
     }
 
     if(!Validator.equals(data.password, data.password2)){
-        errors.password2 = 'Passwords are not identical';
+        errors.password2 = 'Passwords do not match';
     }
 
     return {

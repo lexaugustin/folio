@@ -3,9 +3,8 @@ const   express     = require('express'),
         bodyParser  = require('body-parser'),
         passport    = require('passport'),
 
-        auth = require('./routes/api/users'),
-        profile = require('./routes/api/profile'),
-        posts = require('./routes/api/posts');
+        users = require('./routes/api/users'),
+        profile = require('./routes/api/profile')
 
 
 const app = express();
@@ -30,10 +29,9 @@ app.use(passport.initialize());
 // Passport Config
 require('./config/passport')(passport);
 
-//Use routes
-app.use('/api/users', auth);
+// Use routes
+app.use('/api/users', users);
 app.use('/api/profile', profile);
-app.use('/api/posts', posts);
 
 
 // Start server

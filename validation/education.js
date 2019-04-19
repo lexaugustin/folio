@@ -7,7 +7,7 @@ module.exports = function validateEducationInput(data) {
 
     data.school = !isEmpty(data.school) ? data.school : '';
     data.degree = !isEmpty(data.degree) ? data.degree : '';
-    data.major = !isEmpty(data.startDate) ? data.startDate : '';
+    data.major = !isEmpty(data.major) ? data.major : '';
     data.startDate = !isEmpty(data.startDate) ? data.startDate : '';
 
     if(Validator.isEmpty(data.school)){
@@ -29,5 +29,5 @@ module.exports = function validateEducationInput(data) {
     return {
         errors,
         isValid: isEmpty(errors)
-    }
-}
+    };
+};

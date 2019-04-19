@@ -37,17 +37,17 @@ const InputField = ({
 };
 
 InputField.propTypes = {
-  name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  icon: PropTypes.string,
-  error: PropTypes.string,
-  type: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+    name: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    value: PropTypes.string.isRequired,
+    icon: PropTypes.string,
+    error: PropTypes.string,
+    type: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
 };
 
 InputField.defaultProps = {
-  type: 'text'
+    type: 'text'
 };
 
 export default InputField;

@@ -10,7 +10,7 @@ const ProfileSchema = new Schema({
     username: {
         type: String,
         required: true,
-        max: 30             //30 characters maximum
+        max: 30             // 30 characters maximum
     },
     company: {
         type: String
@@ -32,7 +32,7 @@ const ProfileSchema = new Schema({
     portfolio: {
         type: String
     },
-    GitHubUsername: {
+    githubUsername: {
         type: String
     },
     social: {

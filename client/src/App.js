@@ -24,6 +24,8 @@ import CreateProfile from './Components/create-profile/CreateProfile';
 import EditProfile from './Components/edit-profile/EditProfile';
 import AddExperience from './Components/ProfileSections/AddExperience';
 import AddEducation from './Components/ProfileSections/AddEducation';
+import Profiles from './Components/profiles/Profiles';
+import Profile from './Components/profile/Profile';
 
 
 // Styles
@@ -41,7 +43,7 @@ if(localStorage.jwtToken) {
   store.dispatch(setCurrentUser(decoded));
 
   // Check if the token has expired
-  const currentTime = Date.now()
+  const currentTime = Date.now() / 1000;
 
   // Check if the expiration time is greater than the current time
   // to logout the user
@@ -67,6 +69,8 @@ class App extends Component {
             <Route exact path="/" component = {LandingPage} />
             <Route exact path="/signin" component = {Signin} />
             <Route exact path="/signup" component = {Signup} />
+            <Route exact path="/profiles" component = {Profiles} />
+            <Route exact path="/profile/:username" component = {Profile} />
 
             {/* Display user profile */}
             <Switch><PrivateRoute exact path="/userprofile" component = {UserProfile} /></Switch>

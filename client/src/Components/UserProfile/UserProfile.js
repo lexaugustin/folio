@@ -10,8 +10,8 @@ import { connect } from 'react-redux';
 // Components
 import ProfileActions from './ProfileActions';
 import Loading from '../Common/Loading';
-import { Experience } from './Experience';
-import { Education } from './Education';
+import Experience from './Experience';
+import Education from './Education';
 
 
 
@@ -46,7 +46,8 @@ class UserProfile extends Component {
                         </p>
 
                         <ProfileActions/>
-                        <Experience experience={profile.experience/>
+                        <Experience experience={profile.experience}/>
+                        <Education education={profile.education}/>
 
                         <div style={{ marginBottom: '60px' }} />
                         <button

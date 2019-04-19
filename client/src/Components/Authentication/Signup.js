@@ -10,7 +10,6 @@ import SignupStyles from './Signin.module.css'
 
 // Components
 import TextField from '../Common/TextField'
-import Footer from '../Footer/Footer'
 
 class Signup extends Component {
 
@@ -30,7 +29,7 @@ class Signup extends Component {
 
     componentDidMount(){
         if( this.props.auth.isAuthenticated) {
-            this.props.history.push('/dashboard');
+            this.props.history.push('/userprofile');
         }
     }
 
