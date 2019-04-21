@@ -52,7 +52,7 @@ export const getProfiles = () => dispatch => {
   };
 
 // Get profile by username
-export const getProfileByUsername = username=> dispatch => {
+export const getProfileByUsername = username => dispatch => {
     dispatch(setProfileLoading());
     axios
       .get(`/api/profile/username/${username}`)

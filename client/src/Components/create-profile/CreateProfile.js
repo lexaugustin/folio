@@ -23,7 +23,7 @@ class CreateProfile extends Component {
       skills: '',
       bio: '',
       portfolio: '',
-      githubUsername: '',
+      githubusername: '',
       linkedin: '',
       dribble: '',
       behance: '',
@@ -54,7 +54,7 @@ class CreateProfile extends Component {
       skills: this.state.skills,
       bio: this.state.bio,
       linkedin: this.state.linkedin,
-      githubUsername: this.state.githubUsername,
+      githubusername: this.state.githubusername,
       dribble: this.state.dribble,
       behance: this.state.behance,
       instagram: this.state.instagram,
@@ -193,10 +193,10 @@ class CreateProfile extends Component {
                 />
                 <TextField
                   placeholder="Github Username"
-                  name="githubUsername"
-                  value={this.state.githubUsername}
+                  name="githubusername"
+                  value={this.state.githubusername}
                   onChange={this.onChange}
-                  error={errors.githubUsername}
+                  error={errors.githubusername}
                   info="Include your Github username to showcase your projects repo"
                 />
                 <TextAreaField

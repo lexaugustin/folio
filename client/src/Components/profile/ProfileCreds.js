@@ -9,11 +9,11 @@ class ProfileCreds extends Component {
       <li key={exp._id} className="list-group-item">
         <h4>{exp.company}</h4>
         <p>
-          <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
-          {exp.to === null ? (
+          <Moment format="YYYY/MM/DD">{exp.startDate}</Moment> -
+          {exp.endDate === null ? (
             ' Now'
           ) : (
-            <Moment format="YYYY/MM/DD">{exp.to}</Moment>
+            <Moment format="YYYY/MM/DD">{exp.endDate}</Moment>
           )}
         </p>
         <p>
@@ -40,18 +40,18 @@ class ProfileCreds extends Component {
       <li key={edu._id} className="list-group-item">
         <h4>{edu.school}</h4>
         <p>
-          <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
-          {edu.to === null ? (
+          <Moment format="YYYY/MM/DD">{edu.startDate}</Moment> -
+          {edu.endDate === null ? (
             ' Now'
           ) : (
-            <Moment format="YYYY/MM/DD">{edu.to}</Moment>
+            <Moment format="YYYY/MM/DD">{edu.endDate}</Moment>
           )}
         </p>
         <p>
           <strong>Degree:</strong> {edu.degree}
         </p>
         <p>
-          <strong>Field Of Study:</strong> {edu.fieldofstudy}
+          <strong>Major:</strong> {edu.major}
         </p>
         <p>
           {edu.description === '' ? null : (

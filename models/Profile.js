@@ -32,14 +32,11 @@ const ProfileSchema = new Schema({
     portfolio: {
         type: String
     },
-    githubUsername: {
+    githubusername: {
         type: String
     },
     social: {
         linkedin: {
-            type: String,
-        },
-        github: {
             type: String,
         },
         dribble: {

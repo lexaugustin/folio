@@ -1,7 +1,7 @@
 const   express     = require('express'),
         router      = express.Router(),
         mongoose    = require('mongoose'),
-        passport    = require('passport') 
+        passport    = require('passport')
 
 // Import profile inputs validation
 const validateProfileInput = require('../../validation/profile');
@@ -18,7 +18,7 @@ const User = require('../../models/User');
 // // @desc        Tests profile route
 // // @access      Public
 // router.get('/test', (req, res) => res.json(
-//     { 
+//     {
 //         msg: 'Profile Works'
 //     })
 // );
@@ -71,12 +71,12 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 
     profileData.social = {};
     if(req.body.linkedin) profileData.social.linkedin = req.body.linkedin;
-    if(req.body.github) profileData.social.github = req.body.github;
+    if(req.body.githubusername) profileData.social.githubusername = req.body.githubusername;
     if(req.body.dribble) profileData.social.dribble = req.body.dribble;
     if(req.body.behance) profileData.social.behance = req.body.behance;
     if(req.body.instagram) profileData.social.instagram = req.body.instagram;
     if(req.body.twitter) profileData.social.twitter = req.body.twitter;
-    
+
     Profile.findOne({user: req.user.id})
         .then(profile => {
             if(profile) { //If the profile already exists
@@ -95,7 +95,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
                     // Save the new profile
                     new Profile(profileData).save().then(profile => res.json(profile));
                 });
-                
+
             }
         });
 });

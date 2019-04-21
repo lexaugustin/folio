@@ -48,9 +48,9 @@ class CreateProfile extends Component {
 
     if (nextProps.profile.profile) {
         const profile = nextProps.profile.profile;
-  
+
         const skillsWithComma = profile.skills.join(',');
-  
+
         // Checking if the a non-required profile field does not exist to make it an empty string
         profile.company = !isEmpty(profile.company) ? profile.company : '';
         profile.portfolio = !isEmpty(profile.portfolio) ? profile.portfolio : '';
@@ -63,7 +63,7 @@ class CreateProfile extends Component {
         profile.twitter = !isEmpty(profile.social.twitter) ? profile.social.twitter : '';
         profile.dribble = !isEmpty(profile.social.dribble) ? profile.social.dribble : '';
         profile.behance = !isEmpty(profile.social.behance) ? profile.social.behance : '';
-  
+
         this.setState({
             username: profile.username,
             company: profile.company,
