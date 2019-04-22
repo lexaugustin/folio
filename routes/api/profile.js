@@ -62,6 +62,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     if(req.body.company) profileData.company = req.body.company;
     if(req.body.location) profileData.location = req.body.location;
     if(req.body.status) profileData.status = req.body.status;
+    if(req.body.githubusername) profileData.githubusername = req.body.githubusername;
 
     if(typeof req.body.skills !== 'undefined'){
         profileData.skills = req.body.skills.split(',');
@@ -71,7 +72,6 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 
     profileData.social = {};
     if(req.body.linkedin) profileData.social.linkedin = req.body.linkedin;
-    if(req.body.githubusername) profileData.social.githubusername = req.body.githubusername;
     if(req.body.dribble) profileData.social.dribble = req.body.dribble;
     if(req.body.behance) profileData.social.behance = req.body.behance;
     if(req.body.instagram) profileData.social.instagram = req.body.instagram;

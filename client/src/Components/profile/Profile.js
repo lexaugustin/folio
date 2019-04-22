@@ -47,7 +47,9 @@ class Profile extends Component {
           />
           {profile.githubusername ? (
             <ProfileGithub username={profile.githubusername} />
-          ) : null}
+          ) : (
+            <p className="text-center">No Github Username Listed</p>
+          )}
         </div>
       );
     }
