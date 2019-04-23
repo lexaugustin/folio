@@ -61,7 +61,6 @@ class Profile extends Component {
               </div>
             </div>
           </div>
-<<<<<<< HEAD
           <ProfileHeader profile={profile} />
           <ProfileAbout profile={profile} />
           <ProfileCreds
@@ -73,12 +72,9 @@ class Profile extends Component {
           ) : (
             <p className="text-center">No Github Username Listed</p>
           )
-          
+
           }
 
-
-=======
->>>>>>> 36daee2c0182506bbb8a52df77ac32e74c892793
         </div>
       );
     } else {

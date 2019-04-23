@@ -72,10 +72,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 
     profileData.social = {};
     if(req.body.linkedin) profileData.social.linkedin = req.body.linkedin;
-<<<<<<< HEAD
     if(req.body.githubusername) profileData.githubusername = req.body.githubusername;
-=======
->>>>>>> 36daee2c0182506bbb8a52df77ac32e74c892793
     if(req.body.dribble) profileData.social.dribble = req.body.dribble;
     if(req.body.behance) profileData.social.behance = req.body.behance;
     if(req.body.instagram) profileData.social.instagram = req.body.instagram;

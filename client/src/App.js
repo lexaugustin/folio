@@ -26,8 +26,6 @@ import AddExperience from './Components/ProfileSections/AddExperience';
 import AddEducation from './Components/ProfileSections/AddEducation';
 import Profiles from './Components/profiles/Profiles';
 import Profile from './Components/profile/Profile';
-import Delete from './Components/Delete';
-
 
 // Styles
 import './App.css';
@@ -83,8 +81,6 @@ class App extends Component {
             <Switch><PrivateRoute exact path="/add-experience" component = {AddExperience} /></Switch>
             {/* Add Education to user profile */}
             <Switch><PrivateRoute exact path="/add-education" component = {AddEducation} /></Switch>
-            {/*Delete User Profile*/}
-            <Switch><PrivateRoute exact path="/delete-profile" component = {Delete} /></Switch>
 
             {/* <Footer /> */}
           </div>
