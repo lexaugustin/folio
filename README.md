@@ -7,9 +7,15 @@ To download dependencies associated with the project run:
 ### 'npm install'
 ### 'npm run client-install'
 
-To run in development mode, you must install the chrome extension Redux Devtools and run:
+In the project directory, you can run:
 
 ### 'npm run dev'
+
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser. You must install the chrome extension Redux Devtools.
+
+The page will reload if you make edits.
+You will also see any lint errors in the console.
 
 ## Learn More
 
