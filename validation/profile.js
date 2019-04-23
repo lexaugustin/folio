@@ -32,15 +32,10 @@ module.exports = function validateProfileInput(data) {
     }
 
     // Social Accounts
+    
     if(!isEmpty(data.linkedin)){
         if(!Validator.isURL(data.linkedin)){
             errors.linkedin = 'The URL is not valid';
-        }
-    }
-
-    if(!isEmpty(data.github)){
-        if(!Validator.isURL(data.github)){
-            errors.github = 'The URL is not valid';
         }
     }
 

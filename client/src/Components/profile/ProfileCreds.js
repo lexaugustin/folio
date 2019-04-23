@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 
+import Styles from './ProfileCreds.module.css'
+
 class ProfileCreds extends Component {
   render() {
     const { experience, education } = this.props;
@@ -64,7 +66,8 @@ class ProfileCreds extends Component {
     ));
     return (
       <div className="row">
-        <div className="col-md-6">
+
+        <div className="col-md-6" id={Styles.experience}>
           <h3 className="text-center text-info">Experience</h3>
           {expItems.length > 0 ? (
             <ul className="list-group">{expItems}</ul>

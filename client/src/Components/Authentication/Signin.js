@@ -60,37 +60,115 @@ class Signin extends Component {
         const { errors } = this.state;
 
         return (
-            <div id={SigninStyles.content}>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Sign In</h1>
-                            <form onSubmit={this.onSubmit}>
+
+            // <div id={SigninStyles.content}>
+            //     <div id={SigninStyles.picture}>
+                    
+            //     </div>
+
+            //     <div id={SigninStyles.form}>
+            //         <form onSubmit={this.onSubmit}>
+            //             <h1>Sign in</h1>
+
+            //             <input 
+            //                 type="email" 
+            //                 placeholder="Email" 
+            //                 name="email"
+            //                 value={this.state.email}
+            //                 onChange={this.onChange}
+            //                 error={errors.email}
+            //             />
+
+            //             <input
+            //                 type="password"
+            //                 placeholder="Password"
+            //                 name="password"
+            //                 value={this.state.password}
+            //                 onChange={this.onChange}
+            //                 error={errors.password}
+            //             />
+                        
+            //             {error && <div className="invalid-feedback">{error}</div>}
+
+            //             <a href="#">Forgot your password?</a>
+
+            //             <button>Sign In</button>
+            //         </form>
+            //     </div>
+            // </div>
+
+
+            // <div id={SigninStyles.content}>
+            //     <div className="container">
+            //         <div className="row">
+            //             <div className="col-md-8 m-auto">
+            //                 <h1 className="display-4 text-center">Sign In</h1>
+            //                 <form onSubmit={this.onSubmit}>
                                 
-                                <TextField
-                                    placeholder="Email"
-                                    name="email"
-                                    type="email"
-                                    value={this.state.email}
-                                    onChange={this.onChange}
-                                    error={errors.email}
-                                />
+            //                     <TextField
+            //                         placeholder="Email"
+            //                         name="email"
+            //                         type="email"
+            //                         value={this.state.email}
+            //                         onChange={this.onChange}
+            //                         error={errors.email}
+            //                     />
 
-                                <TextField
-                                    placeholder="Password"
-                                    name="password"
-                                    type="password"
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                    error={errors.password}
-                                />
+            //                     <TextField
+            //                         placeholder="Password"
+            //                         name="password"
+            //                         type="password"
+            //                         value={this.state.password}
+            //                         onChange={this.onChange}
+            //                         error={errors.password}
+            //                     />
 
-                                <input type="submit" className="btn btn-info btn-block mt-4" />
-                            </form>
-                        </div>
-                    </div>
+            //                     <input type="submit" className="btn btn-info btn-block mt-4" />
+            //                 </form>
+            //             </div>
+            //         </div>
+            //     </div>
+            // </div>
+
+
+
+            <div id={SigninStyles.content}>
+
+                <div id={SigninStyles.picture}>
+                    
                 </div>
+
+                <div id={SigninStyles.form}>
+                    <form onSubmit={this.onSubmit}>
+                        <h1>Sign in</h1>
+
+                        <TextField 
+                            id={SigninStyles.input}
+                            type="email" 
+                            placeholder="Email" 
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                            error={errors.email}
+                        />
+
+                        <TextField
+                            type="password"
+                            placeholder="Password"
+                            name="password"
+                            value={this.state.password}
+                            onChange={this.onChange}
+                            error={errors.password}
+                        />
+
+                        <div><a href="#">Forgot your password?</a></div>
+
+                        <button>Sign In</button>
+                    </form>
+                </div>
+
             </div>
+
         )
     }
 }
@@ -100,6 +178,10 @@ Signin.propTypes = {
     signInUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
+};
+
+TextField.defaultProps = {
+  type: 'text'
 };
 
 const mapStateToProps = state => ({

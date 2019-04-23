@@ -40,3 +40,8 @@ img {
   .form-control::placeholder {
     color: #bbb !important;
   }
+
+  .profiles {
+    max-width: 1200px;
+    margin: 0 auto;
+  }

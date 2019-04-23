@@ -1,10 +1,105 @@
-/* #content {
-    position: absolute;
+#content {
+    width: 80%;
+    max-width: 1000px;
+    height: 700px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    margin: 20vh auto;
     display: flex;
 }
 
+#picture {
+    height: 100%;
+    width: 50%;
+    background-image: url("https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-position: center;
+    background-size: cover;
+}
 
-#left {
+h1 {
+    font-weight: bold;
+    margin: 50px auto;
+}
+
+h6 {
+    margin-top: 20px;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+}
+
+a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+.profile-card {
+    /* display: inline-block; */
+    float: left;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #335DB2;
+    background-color: #335DB2;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    margin: 50px 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+}
+
+#form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    width: 70%;
+    text-align: center;
+}
+
+#input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+}
+
+
+@media only screen and (max-width: 850px) {
+    #picture {
+        display: none;
+    }
+}
+
+
+/* #left {
     width: 50vw;
     height: calc(100vh - 50px);
     background-image: url("https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");

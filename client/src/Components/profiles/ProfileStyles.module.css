@@ -1,0 +1,17 @@
+#content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    display: inline-block;
+}
+
+.viewProfileButton {
+    margin: 0 auto;
+}
+
+.card p {
+    font-size: 14px;
+    font-weight: 100;
+}

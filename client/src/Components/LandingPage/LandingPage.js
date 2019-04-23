@@ -26,7 +26,7 @@ class LandingPage extends Component {
                                 <h1 className="display-3 mb-4">Folio</h1>
                                 <p className="lead">Portfolio Web Application</p>
                                 <Link to="/signin" className="btn btn-lg btn-light mr-2">Sign In</Link>
-                                <Link to="/registersignup" className="btn btn-lg btn-info">Sign Up</Link>
+                                <Link to="/signup" className="btn btn-lg btn-info">Sign Up</Link>
                             </div>
                         </div>
                     </div>

@@ -18,12 +18,12 @@ module.exports = function validateSingUpInput(data) {
         errors.name = 'Your name is required';
     }
 
-    if(Validator.isEmpty(data.email)){
-        errors.email = 'Your email is required';
-    }
-
     if(!Validator.isEmail(data.email)){
         errors.email = 'Your email is invalid';
+    }
+
+    if(Validator.isEmpty(data.email)){
+        errors.email = 'Your email is required';
     }
 
     if(Validator.isEmpty(data.password)){

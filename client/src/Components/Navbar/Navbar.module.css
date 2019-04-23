@@ -1,4 +1,4 @@
-/* nav {
+nav {
     height: 50px;
     color: #FFF;
     background-color: #3E488C;
@@ -6,7 +6,7 @@
     box-shadow: 0px 1px 2px #e4e4e4;
 }
 
-#nav #content {
+/* #nav #content {
     width: 80%;
     display: flex;
     justify-content: space-between;

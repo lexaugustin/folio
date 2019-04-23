@@ -83,7 +83,7 @@ class App extends Component {
             {/* Add Education to user profile */}
             <Switch><PrivateRoute exact path="/add-education" component = {AddEducation} /></Switch>
 
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </Router>
       </Provider>

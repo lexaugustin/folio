@@ -63,55 +63,113 @@ class Signup extends Component {
         const { errors } = this.state;
 
         return (
-            <div id={SignupStyles.content}>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Sign Up</h1>
-                            <form noValidate onSubmit={this.onSubmit}>
+            // <div id={SignupStyles.content}>
+            //     <div className="container">
+            //         <div className="row">
+            //             <div className="col-md-8 m-auto">
+            //                 <h1 className="display-4 text-center">Sign Up</h1>
+            //                 <form noValidate onSubmit={this.onSubmit}>
 
-                                <TextField
-                                    placeholder="Name"
-                                    name="name"
-                                    type="text"
-                                    value={this.state.name}
-                                    onChange={this.onChange}
-                                    error={errors.name}
-                                />
+            //                     <TextField
+            //                         placeholder="Name"
+            //                         name="name"
+            //                         type="text"
+            //                         value={this.state.name}
+            //                         onChange={this.onChange}
+            //                         error={errors.name}
+            //                     />
 
-                                <TextField
-                                    placeholder="Email"
-                                    name="email"
-                                    type="email"
-                                    value={this.state.email}
-                                    onChange={this.onChange}
-                                    error={errors.email}
-                                />
+            //                     <TextField
+            //                         placeholder="Email"
+            //                         name="email"
+            //                         type="email"
+            //                         value={this.state.email}
+            //                         onChange={this.onChange}
+            //                         error={errors.email}
+            //                     />
 
-                                <TextField
-                                    placeholder="Password"
-                                    name="password"
-                                    type="password"
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                    error={errors.password}
-                                />
+            //                     <TextField
+            //                         placeholder="Password"
+            //                         name="password"
+            //                         type="password"
+            //                         value={this.state.password}
+            //                         onChange={this.onChange}
+            //                         error={errors.password}
+            //                     />
 
-                                <TextField
-                                    placeholder="Confirm Password"
-                                    name="password2"
-                                    type="password"
-                                    value={this.state.password2}
-                                    onChange={this.onChange}
-                                    error={errors.password2}
-                                />
+            //                     <TextField
+            //                         placeholder="Confirm Password"
+            //                         name="password2"
+            //                         type="password"
+            //                         value={this.state.password2}
+            //                         onChange={this.onChange}
+            //                         error={errors.password2}
+            //                     />
 
-                                <input type="submit" className="btn btn-info btn-block mt-4" />
+            //                     <input type="submit" className="btn btn-info btn-block mt-4" />
                                 
-                            </form>
-                        </div>
-                    </div>
+            //                 </form>
+            //             </div>
+            //         </div>
+            //     </div>
+            // </div>
+
+            <div id={SignupStyles.content}>
+
+                <div id={SignupStyles.picture}>
+                    
                 </div>
+
+                <div id={SignupStyles.form}>
+                    <form onSubmit={this.onSubmit}>
+                        <h1>Sign Up</h1>
+
+                        <TextField
+                            id={SignupStyles.input}
+                            placeholder="Name"
+                            name="name"
+                            type="text"
+                            value={this.state.name}
+                            onChange={this.onChange}
+                            error={errors.name}
+                        />
+
+                        <TextField
+                            id={SignupStyles.input}
+                            placeholder="Email"
+                            name="email"
+                            type="email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                            error={errors.email}
+                        />
+
+                        <TextField
+                            id={SignupStyles.input}
+                            placeholder="Password"
+                            name="password"
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.onChange}
+                            error={errors.password}
+                        />
+
+                        <TextField
+                            id={SignupStyles.input}
+                            placeholder="Confirm Password"
+                            name="password2"
+                            type="password"
+                            value={this.state.password2}
+                            onChange={this.onChange}
+                            error={errors.password2}
+                        />
+
+                        <div><a href="#">Forgot your password?</a></div>
+
+                        <button>Sign Up</button>
+                    </form>
+                </div>
+
             </div>
         )
     }
