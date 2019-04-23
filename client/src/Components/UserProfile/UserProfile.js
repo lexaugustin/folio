@@ -41,7 +41,7 @@ class UserProfile extends Component {
                 userProfileContent = (
                     <div>
                         <p className="lead text-muted">
-                            Welcome to Folio 
+                            Welcome to Folio
                             <Link to={`/profile/${profile.username}`}>{user.name}</Link>
                         </p>
 
@@ -50,12 +50,7 @@ class UserProfile extends Component {
                         <Education education={profile.education}/>
 
                         <div style={{ marginBottom: '60px' }} />
-                        <button
-                            onClick={this.onDeleteClick.bind(this)}
-                            className="btn btn-danger"
-                        >
-                            Delete My Account
-                        </button>
+                        <Link to="/delete-profile" className="btn btn-danger">Delete My Account</Link>
 
                     </div>
                 );
