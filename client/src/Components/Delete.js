@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import Button from '@material-ui/core/Button';
+import  { getCurrentProfile, deleteAccount} from '../actions/profileActions';
+// import { Link } from 'react-router-dom';
+
+// Redux
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 export class Delete extends Component {
+	componentDidMount() {
+			this.props.getCurrentProfile();
+	}
+
+	onDeleteClick(e) {
+			this.props.deleteAccount();
+	}
+
 	render() {
+		const { profile } = this.props.profile;
 		return (
 			<MuiThemeProvider>
 				<React.Fragment>
@@ -48,14 +63,27 @@ export class Delete extends Component {
 					<div>
 						If you receive an email that your account has been reactivated, and you did not log in to reactivate, your account may have been compromised. If you suspect your account may be compromised, follow instructions on how to secure your account. After you have successfully changed your password and reviewed your account connections, you can deactivate your account again.
 					</div>
-					<Button color="primary" variant="contained" style={styles.button}>
-						Delete Account
-					</Button>
+					<button
+							onClick={this.onDeleteClick.bind(this)}
+							className="btn btn-danger"
+					>
+							Delete My Account
+					</button>
 				</React.Fragment>
 			</MuiThemeProvider>
 		)
 	}
 }
+
+Delete.propTypes = {
+    getCurrentProfile: PropTypes.func.isRequired,
+    deleteAccount: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    profile: state.profile
+});
 
 const styles ={
 	button: {
@@ -63,4 +91,4 @@ const styles ={
 	}
 }
 
-export default Delete
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Delete);
